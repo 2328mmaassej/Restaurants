@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= link_to image_tag(@restaurant.picture, :width => 400), @restaurant.website %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= link_to @restaurant.name, @restaurant.website %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%=link_to "Google Maps", @restaurant.location %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @restaurant.website %>
+</p>
+
+<p>
+  <b>Cuisine:</b>
+  <%= @restaurant.cuisine %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @restaurant.comments %>
+</p>
+
+<p>
+  <b>Recommended by:</b>
+  <ul><% @restaurant.users.each do |user| %>
+  <li><%= link_to user.name, user_url(user.id) %></li>
+  <% end %></ul>
+</p>
+
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>

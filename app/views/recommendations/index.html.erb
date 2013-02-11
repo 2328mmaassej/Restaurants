@@ -1,0 +1,16 @@
+<h1>Recommendations</h1>
+
+<td><%= link_to 'New Recommendation', new_recommendation_path %></td>
+
+<% @recommendations.each do |recommendation| %>
+  <ul>
+    <h3><%= link_to recommendation.restaurant.name, restaurant_url(recommendation.restaurant.id) %></h3>
+    <td>Recommended by: <%=link_to recommendation.user.name, user_url(recommendation.user.id) %></td>
+  </ul>
+    <td><%= link_to 'Show', recommendation %></td>
+    <td><%= link_to 'Edit', edit_recommendation_path(recommendation) %></td>
+    <td><%= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+<br />
+

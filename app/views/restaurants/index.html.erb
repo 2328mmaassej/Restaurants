@@ -1,0 +1,19 @@
+<h1>Listing restaurants</h1>
+
+<% @restaurants.each do |restaurant| %>
+  <ul>
+    <div><%= link_to image_tag(restaurant.picture, :width => 240), restaurant.website %></div>
+    <h2><%= link_to restaurant.name, restaurant.website %></h2>
+    <li>Neighborhood: <%= link_to "Google Maps", restaurant.location %></li>
+    <li>Cuisine: <%= restaurant.cuisine %></li>
+    <li>Comments: <%= restaurant.comments %></li>
+    <li> Recommended by: <ul><%  restaurant.users.each do |user| %></li>
+                            <li><%= link_to user.name, user_url(user.id) %></li>
+                            <% end %> </ul>
+    <div><%= link_to 'Show', restaurant %></div>
+    <div><%= link_to 'Edit', edit_restaurant_path(restaurant) %></div>
+    <div><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+  </ul>
+<% end %>
+
+<%= link_to 'New Restaurant', new_restaurant_path %>

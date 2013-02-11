@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Recommendations:</b>
+  <ul><% @user.restaurants.each do |restaurant| %>
+  <li><%= link_to restaurant.name, restaurant_url(restaurant.id) %></li>
+  <% end %><ul>
+</p>
+
+<td><%= link_to 'Edit', edit_user_path(@user) %></> | 
+<td><%= link_to 'Destroy', user_url, method: :delete, data: { confirm: 'Are you sure?' } %></td> |
+<td><%= link_to 'Back', users_path %></td>
