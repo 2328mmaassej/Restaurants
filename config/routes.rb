@@ -1,5 +1,7 @@
 Restaurants::Application.routes.draw do
   
+root :to => "home#index"
+
   get "/home" => "Home#index", :as => "home"
 
   resources :recommendations
