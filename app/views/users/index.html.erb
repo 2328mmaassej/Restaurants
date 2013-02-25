@@ -1,10 +1,10 @@
 <h1>Listing users</h1>
 
+<nav class="btn"><%= link_to 'New User', new_user_path %></nav>
+<p></p>
 <% @users.each do |user| %>
   <tr>
-    <li><%= link_to user.name, user %></li>
+    <nav class="btn"><%= link_to user.name, user_url(user.id) %></nav>
 <% end %>
 
 <br />
-
-<%= link_to 'New User', new_user_path %>

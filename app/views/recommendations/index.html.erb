@@ -1,12 +1,23 @@
 <h1>Recommendations</h1>
 
-<td><%= link_to 'New Recommendation', new_recommendation_path %></td>
+<nav class="btn"><%= link_to 'New Recommendation', new_recommendation_path %></nav>
+<p></p>
+<table class="table table-striped">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Recommended by</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
+
+  </tr>
 
 <% @recommendations.each do |recommendation| %>
-  <ul>
-    <h3><%= link_to recommendation.restaurant.name, restaurant_url(recommendation.restaurant.id) %></h3>
+  <tr>
+    <td><%= link_to image_tag(recommendation.restaurant.picture, :width => 240), recommendation.restaurant.website %></td>
+    <td><%= link_to recommendation.restaurant.name, restaurant_url(recommendation.restaurant.id) %></td>
     <td>Recommended by: <%=link_to recommendation.user.name, user_url(recommendation.user.id) %></td>
-  </ul>
     <td><%= link_to 'Show', recommendation %></td>
     <td><%= link_to 'Edit', edit_recommendation_path(recommendation) %></td>
     <td><%= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

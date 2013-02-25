@@ -8,12 +8,18 @@
 </head>
 <body>
 
-<%= link_to "Restaurants", restaurants_url %>
-||
-<%= link_to "Users", users_url %>
-||
-<%= link_to "Recommend", recommendations_url %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" <%=link_to "Home", home_url%></a>
+    <ul class="nav">
+      <li><a <%=link_to "Restaurants", restaurants_url%></a></li>
+      <li><a <%=link_to "Users", users_url%></a></li>
+      <li><a <%=link_to "Login", sessions_new_url%></a></li>
+    </ul>
+  </div>
+</div>
 
+<%= notice %>
 <%= yield %>
 
 </body>

@@ -14,6 +14,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find(params[:id])
+    @recommendation = Recommendation.new
 
     respond_to do |format|
       format.html # show.html.erb

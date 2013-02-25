@@ -1,19 +1,46 @@
-<h1>Listing restaurants</h1>
+<h1>Restaurants</h1>
 
+<nav class="btn"><%= link_to 'New Restaurant', new_restaurant_path %></nav>
+<p></p>
+<table class="table table-striped">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Neighborhood</th>
+    <th>Cuisine</th>
+    <th>Comments</th>
+    <th>Recommended by</th>
+    <th></th>
+    <th></th>
+    <th></th>
+
+  </tr>
 <% @restaurants.each do |restaurant| %>
-  <ul>
-    <div><%= link_to image_tag(restaurant.picture, :width => 240), restaurant.website %></div>
-    <h2><%= link_to restaurant.name, restaurant.website %></h2>
-    <li>Neighborhood: <%= link_to "Google Maps", restaurant.location %></li>
-    <li>Cuisine: <%= restaurant.cuisine %></li>
-    <li>Comments: <%= restaurant.comments %></li>
-    <li> Recommended by: <ul><%  restaurant.users.each do |user| %></li>
+  <tr>
+    <td><%= link_to image_tag(restaurant.picture, :width => 240, :height => 200), restaurant.website %></td>
+    <td><%= link_to restaurant.name, restaurant %></td>
+    <td><%= link_to "Google Maps", restaurant.location %></td>
+    <td><%= restaurant.cuisine %></td>
+    <td><%= restaurant.comments %></td>
+    <td><ul><%  restaurant.users.each do |user| %>
                             <li><%= link_to user.name, user_url(user.id) %></li>
-                            <% end %> </ul>
-    <div><%= link_to 'Show', restaurant %></div>
-    <div><%= link_to 'Edit', edit_restaurant_path(restaurant) %></div>
-    <div><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-  </ul>
+                            <% end %> </ul></td>
+    <td><%= form_for Recommendation.new do |f| %>
+        <div class="field">
+            <%= f.hidden_field :user_id, :value => session[:user_id] %>
+          </div>
+          <div class="field">
+            <%= f.hidden_field :restaurant_id, :value => restaurant.id  %>
+          </div>
+          <td><div class="actions">
+            <%= f.submit %>
+          </div></td>
+         <% end %> 
+    <td><nav class="btn"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></nav></td>
+    <td><nav class="btn"><%= link_to 'Delete', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></nav></td>
+  </tr>
 <% end %>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+</table>
+</br>
+

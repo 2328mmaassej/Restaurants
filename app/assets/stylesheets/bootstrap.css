@@ -1,3 +1,13 @@
+/*!
+ * Bootstrap v2.3.0
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+
 .clearfix {
   *zoom: 1;
 }
@@ -90,7 +100,7 @@ sub {
 
 img {
   width: auto\9;
-  height: auto;
+  height: 350;
   max-width: 100%;
   vertical-align: middle;
   border: 0;
@@ -1019,9 +1029,9 @@ form {
 }
 
 fieldset {
-  padding: 10;
-  margin: 10;
-  border: 10;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
 legend {
