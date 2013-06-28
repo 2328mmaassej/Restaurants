@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+'require gdata'
+ 
   # GET /users
   # GET /users.json
   def index
