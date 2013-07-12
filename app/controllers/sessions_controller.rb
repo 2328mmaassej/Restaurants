@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
 def new
-
 end
 
 def create
@@ -15,9 +14,9 @@ def create
 	end
 end
 
-def delete
-reset_session
-redirect_to home_url
+def destroy
+  reset_session
+  redirect_to home_url
 end
 
 end

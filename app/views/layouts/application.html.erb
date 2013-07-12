@@ -14,7 +14,15 @@
     <ul class="nav">
       <li><a <%=link_to "Restaurants", restaurants_url%></a></li>
       <li><a <%=link_to "Users", users_url%></a></li>
-      <li><a <%=link_to "Login", new_session_url%></a></li>
+      <li>
+          <% if session[:user_id].present? %>
+            <%= link_to "Sign Out", '/sessions', :method => 'delete' %>
+          <% else %>
+            <%= link_to "Sign In", '/sessions/new' %>
+            </li><li>
+            <%= link_to "Sign Up", '/users/new' %>
+          <% end %>
+      </li>
     </ul>
   </div>
 </div>
